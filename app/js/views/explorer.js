@@ -95,7 +95,7 @@ export function renderExplorerView(container, { domain, indicatorId } = {}) {
     note.textContent = mixed ? `Units differ (${indicator.unit} vs ${compare.unit}); both series rebased to ${years[0]} = 100.` : mode === 'yoy' ? 'Year-over-year change in the indicator unit.' : mode === 'index' ? `Rebased so ${years[0]} = 100.` : `Values in ${indicator.unit}.`;
     const lastIndex = main.length - 1;
     const latestText = mode === 'level' ? ` (${formatSigned(lastPct, 1, '% YoY')})` : '';
-    readout.textContent = ` · ${indicator.shortTitle}: ${formatNumber(main[lastIndex], mode === 'level' ? indicator.digits : 1)}${mode === 'level' ? ' ' + indicator.unit : ''}${latestText} — hover any point to inspect`;
+    readout.textContent = `${indicator.latestYear} · ${indicator.shortTitle}: ${formatNumber(main[lastIndex], mode === 'level' ? indicator.digits : 1)}${mode === 'level' ? ' ' + indicator.unit : ''}${latestText} — hover any point to inspect`;
 
     const slice = indicator.values.slice(start);
     const peak = slice.indexOf(Math.max(...slice));
